@@ -1,0 +1,180 @@
+%%
+%% Copyright (C) 2012 by Deng Pei <vvcoder@gmail.com>
+%%
+%% This file may be distributed and/or modified under the conditions of
+%% the LaTeX Project Public License, either version 1.3c of this license
+%% or (at your option) any later version.  The latest version of this
+%% license is in:
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3c or later is part of all distributions of LaTeX version
+%% 2008/05/04 or later.
+%%
+
+%% This is my dissertation use my ecnuthesis class.
+%% You can use my dissertation as an example to use
+%% ecnuthesis.
+%% Any problem, contact me by email:
+%%
+%% Deng Pei <vvcoder@gmail.com>
+
+\documentclass[a4paper]{ecnuthesis}
+
+\begin{document}
+
+\thesistitle{电子邮件联系人提取工具的设计和实现}{The design and implementation of an email contact extraction tool}
+\thesisdegree{学士}
+\thesisstudent{邓沛}{10082510246}{08级5班}{软件学院}{软件工程}
+\thesisinstructor{罗迒哉}{副教授}
+\thesisdate{2011年4月4日}
+
+\thesistitlepage
+\thesiscontents
+
+\begin{thesisabstractchinese}
+这里是中文摘要。（写你的摘要）
+\fontcourier{there is english use Courier fonts}接下来有来一个中文。长行会自动换行，行距为1.5倍普通行距。长行会自动换行，行距为1.5倍普通行距
+\end{thesisabstractchinese}
+
+\begin{thesisabstractenglish}
+Here is english abstract.（写你的英文摘要）。Long line will auto wrap. Long line will auto wrap. Long line will auto wrap. Long line will auto wrap.
+\end{thesisabstractenglish}
+
+\section{绪论}
+这里是绪论，包含背景，相关工作，论文组织的介绍。\ref{tab:1}
+
+\subsection{背景}
+这里是背景，包含谈中国软件，项目背景，我的项目介绍。
+
+\subsubsection{谈中国软件}
+这里我在谈中国软件\urcite{bib1}。
+
+\subsubsection{项目背景\urcite{bib2}}
+这里我在谈项目背景。
+
+\subsubsection{我的项目介绍}
+这里介绍我的项目。
+
+\subsection{相关工作}
+这里是我的做的相关工作。
+
+\subsection{论文组织}
+这里时介绍我的论文组织。
+
+\section{系统分析与设计}
+这里是系统分析与设计，包括需求分析，概要设计，详细设计。
+
+\subsection{需求分析}
+这里是需求分析，包括系统概要和系统流程。
+
+\subsubsection{系统概要}
+这里是系统概要。
+
+\subsubsection{系统流程}
+这里是系统流程。
+
+\subsection{概要设计}
+这里是概要设计，包括业务流程，功能模块介绍。
+
+\subsubsection{业务流程}
+这里是业务流程。
+
+\subsubsection{功能模块介绍}
+这里是功能模块介绍。
+
+\subsection{详细设计}
+这里是详细设计，包括数据库的设计，详细的设计书，界面设计。
+
+\subsubsection{数据库的设计}
+这里是数据库的设计。
+
+\subsubsection{详细设计书}
+这里是详细设计书。
+
+\subsubsection{界面设计}
+这里是界面设计。
+
+\section{系统实现}
+这里是系统实现，包括界面，关键算法与数据结构。
+
+\subsection{界面}
+这里是界面。
+
+\subsection{关键算法与数据结构}
+这里是关键算法与数据结构。
+
+\section{系统测试}
+这里是系统测试，包括测试计划，测试用例与测试报告。
+
+\subsection{测试计划}
+这里是测试计划，包括单元测试，结合测试，模拟测试，随机测试。
+    \begin{table}
+        \centering
+        \thesistablecaption{tab:1}{索引中的表格1名字}{表格1中文标题}{Table 1 English title}
+        \begin{tabular}{l|l|l}
+        \hline
+        1,1 & 1,2 & 1.3 \\
+        \hline
+        2,1 & ~ & 2.3 \\
+        \hline
+        \end{tabular}
+    \end{table}
+接表格之后的文字。参考\ref{tab:1}
+
+\subsubsection{单元测试}
+这里是单元测试。
+\begin{center}
+    \begin{table}
+        \centering
+        \thesistablecaption{tab:2}{索引中的表格2名字}{表格2中文标题}{Table 2 English title}
+        \begin{tabular}{l|l|l}
+        \hline
+        1,1 & 1,2 & 1.3 \\
+        \hline
+        2,1 & ~ & 2.3\ref{tab:1} \\
+        \hline
+        \end{tabular}
+    \end{table}
+\end{center}
+接表格之\ref{tab:2}后的文字。
+
+\subsubsection{结合测试}
+这里是结合测试。
+
+\subsubsection{模拟测试}
+这里是模拟测试。
+
+\subsubsection{随机测试}
+这里是随机测试。
+
+\subsection{测试用例与测试报告}
+这里是测试用例与测试报告。
+
+\section{总结和展望}
+这里是总结和展望。
+
+\section{致谢}
+到这里来感谢CCTV，感谢挡中央。
+
+\begin{thesisthebibliography}
+\bibitem{bib1} 论中国软件的末日。
+\bibitem{bib2} 这个引用在标题。
+\end{thesisthebibliography}
+
+%\thesistableindex
+%\thesisfigureindex
+\thesisfigureandtableindex
+
+\begin{thesisappendix}
+这里是附录。
+
+\section{LoadMessageFile function}
+这里是LoadMessageFile这个函数的介绍附录。
+
+\section{\TeX{} is painful work}
+这里\dots 自己想
+
+\end{thesisappendix}
+
+\end{document}

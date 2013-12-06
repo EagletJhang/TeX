@@ -1,0 +1,46 @@
+华师大论文LaTeX模板类(3.0 maybe final)
+---------------------
+作者：
+    邓沛 <vvcoder@gmail.com>
+
+
+说明：
+    这个ecnuthesis类是我写论文的副产物，希望能减轻大家的论文编写任务，
+    同时获得最好的排版效果。
+
+
+安装：
+    下载我打包好的类：
+    www.sourceforge.net/projects/ecnuthesis/files/
+    
+    或者：
+    git clone git://git.code.sf.net/p/ecnuthesis/code ecnuthesis-code
+    直接访问代码库，获取最新版本。
+    然后进入文件目录：
+    make
+    这时会生成很多文件，其中有用的文件是：
+    example.pdf			例子论文
+    ecnuthesis.pdf		ecnuthesis用法的详细说明
+    ecnuthesis.cls		ecnuthesis类
+    
+    拷贝其中的ecnuthesis.cls到你的论文目录，或者到TeX系统，一般是
+    tex/latex/ecnuthesis目录都可以。总之让TeX系统能找到ecnuthesis.cls
+    就可以。
+    
+    使用细节请参考前面的ecnuthesis.pdf说明文件。同样，你可以看example.pdf
+    来了解我使用后的排版效果。ChangeLog请看ecnuthesis.pdf的ChangeLog章节。
+    
+    为了方便大家使用，我打的zip包已经是构建好的，已经生成了需要的全部文件，
+    当然，你也可以自己编译。
+
+
+目录结构
+    .
+    ├── ecnuthesis.dtx              类源代码文件
+    ├── ecnuthesis.cls              类代码文件    
+    ├── ecnuthesis.ins              类安装文件
+    ├── ecnuthesis.pdf              类说明文件
+    ├── example.tex                 例子代码文件
+    ├── example.pdf                 例子文件
+    ├── Makefile                    构建文件
+    └── README                      你正在看的文件

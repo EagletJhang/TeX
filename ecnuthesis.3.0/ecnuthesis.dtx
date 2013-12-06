@@ -1,0 +1,583 @@
+% \iffalse The East China Normal University thesis LaTeX template
+%
+% Copyright (C) 2012 by Deng Pei <vvcoder@gmail.com>
+% -------------------------------------------------------
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either
+% version 1.3c of this license or (at your option) any later
+% version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3c or later is part of all distributions of LaTeX 
+% version 2008/05/04 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{ecnuthesis.dtx}
+%</driver>
+%<ecnuthesis>\NeedsTeXFormat{LaTeX2e}
+%<ecnuthesis>\ProvidesClass{ecnuthesis}
+%<*ecnuthesis>
+    [2012/05/26 v3.0 The East China Normal University thesis LaTeX template]
+%</ecnuthesis>
+%
+%<*driver>
+\documentclass[10.5pt]{ltxdoc}
+%
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fontspec}
+\usepackage[slantfont,boldfont]{xeCJK}
+%
+\setmainfont{Courier New}
+\setmonofont{Courier New}
+\setCJKmainfont{KaiTi}
+\setCJKmonofont{KaiTi}
+%
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+%
+\begin{document}
+    \DocInput{ecnuthesis.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \newcommand{\CTeX}{$\mathbb{C}$\TeX{}}
+% \newcommand{\TeXLive}{\TeX{}Live}
+%
+% \renewcommand{\abstractname}{摘要}
+% \renewcommand{\contentsname}{目录}
+%
+% \IndexPrologue{\section*{索引}%
+%     \addcontentsline{toc}{section}{索引}}
+% \GlossaryPrologue{\section*{修改}%
+%     \addcontentsline{toc}{section}{修改}}
+%
+% \changes{v1.0}{2012/04/03}{初始化版本。}
+% \changes{v1.1}{2012/04/04}{添加了附录，感谢等章节，更加符合华师大的要求。}
+% \changes{v1.2}{2012/04/05}{修正了一些小错误，现在基本可以作为正式版本投入使用了。}
+% \changes{v1.3}{2012/04/06}{在首页和目录外的页面添加了页眉。添加了用法说明。}
+% \changes{v1.4}{2012/04/07}{为了省去大家麻烦，我在默认的zip包中提供预编译的类，同时删除了以前复杂的构建命令，并修改部分说明文档。}
+% \changes{v1.5}{2012/04/08}{在目录增加了图表入口，同时修正为中文显示。}
+% \changes{v1.6}{2012/04/09}{添加了插图宏包支持。}
+% \changes{v1.7}{2012/04/09}{调整了摘要行距为1.5倍普通行距，满足华师大的规定。同时实现了变态的中英文图表标题要求。}
+% \changes{v1.8}{2012/04/10}{提供长表环境，另外提供源代码显示环境支持。}
+% \changes{v1.9}{2012/04/10}{修正了目录和页码之间的前导点号问题，整体都加上点号。}
+% \changes{v2.0}{2012/04/17}{添加并排插图支持。}
+% \changes{v2.1}{2012/05/03}{修改初始视图为单页模式。}
+% \changes{v2.2}{2012/05/05}{添加合并表格行列支持。}
+% \changes{v3.0}{2012/05/26}{根据教务老师的精神，较大改动修正了首页版面，更加和学校保持一致。}
+%
+% \GetFileInfo{ecnuthesis.dtx}
+%
+% \DoNotIndex{\newcommand,\newenvironment}
+%
+% \title{The \textsf{ecnuthesis} class华师大论文\LaTeX{}类}
+% \author{邓沛 \\ \texttt{vvcoder@gmail.com}}
+% \date{\today}
+%
+% \maketitle
+% \tableofcontents
+% \newpage
+%
+% \section{简介}
+%
+% 在我编写毕业论文的过程中发现word等工具对管理索引很不方便，而且其对公式
+% 的展现效果也不是很好，于是我决定用\LaTeX{}来写论文。为了能方便大家，顺
+% 便将自己用的格式整理成了ecnuthesis这个类。希望这个类能简化大家编写论文
+% 的任务，让编写论文仅仅成为一件码字的事情，而不需要去考虑其他各种工具特
+% 性的细枝末节。
+%
+% \section{使用}
+% 请严格按照我提供的使用方式来使用这个类，不然后果自负。
+%
+% \subsection{安装}
+% 首先你需要安装\TeX{}环境。目前在Windows系统上流行的\TeX{}环境套件很多，
+% 你可以有如下选择：
+%     \begin{itemize}
+%         \item \href{http://www.ctex.org}{\CTeX{}}
+%         \item \href{http://www.tug.org/texlive/}{\TeXLive{}}
+%     \end{itemize}
+% 其中\CTeX{}是专门给中文用户搞的，也是中国人搞的，对Windows支持优秀，但
+% 是更新有一些慢。一般是1年1更新（年底更新）。\TeXLive{}是TUG的官方产品，
+% 目前对Windows和GNU/Linux支持都很好，推荐这个。当然，除了这2个套件还有很
+% 多的套件可以选择，具体自己参考TUG。安装方法具体参考你选择的套件官方说明。
+% 安装都很简单，应该不会出什么问题。\par
+% 安装完系统，接下来就是安装ecnuthesis类了。本来\LaTeX{}的类安装过程有需要
+% 需了解的额外预备知识，但是为了简化大家的工作，我专门编写了一个Make构建文
+% 件来帮助大家安装。安装步骤如下：
+%     \begin{itemize}
+%         \item 下载\href{https://sourceforge.net/projects/ecnuthesis/files/}{ecnuthesis.zip}包。
+%               当然，你也可以直接访问本模版的\href{www.ecnuthesis.sf.net}{代码托管}
+%               获取最新的版本。建议是直接访问托管库，这样可以获得最新版本，而且以后
+%               为了管理方便，可能不会再提供zip包下载。
+%         \item 用你喜欢的解压缩工具打开，然后进入\TeX{}环境（命令行提前加入PATH变量）。
+%         \item 然后运行make（make是一个工具，你需要自己提前准备，安装方法也比较多，自
+%               己选择）。
+%     \end{itemize}
+% 好了，如果没意外，你已经构建完ecnuthesis类包了。有些复杂，但是在你运行了
+% make命令后，会看到很多命令行输出，这些都是编译信息，警告错误信息也会显示
+% 在其中。当然，如果你来不及看命令行输出，你可以在make运行完毕后打开ecnuthesis.log
+% 里面等同于命令行输出的类容。如果你构建失败，请将这个文件邮寄给我，邮件地
+% 址参置顶的联系方式。还有，为了让大多数人免去安装的麻烦，我特地在提供的zip包
+% 里面包含了我编译的ecnuthesis.cls，你直接用它也可以，这样你就不用自己编译
+% ，也不用去安装make工具，只要有\TeX{}环境就可以了。\par
+% 对于make运行后产生的很多文件，除了ecnuthesis.cls是真正的结果文件外，其他
+% 的都是垃圾文件，你可以自己删除。让然，你可以运行make clean来删除所有文件
+% 包括ecnuthesis.cls文件。ecnuthesis.pdf是ecnuthesis类的说明文件，建议你完
+% 整看一遍，这样可以省去你使用ecnuthesis类过程中的诸多麻烦。example.pdf是我
+% 使用这个类写的论文例子，你可以参考。\par
+% 最后的事情就是将ecnuthesis.cls文件复制到你需要的目录。当然，你也可以复制
+% 到/tex/latex/ecnuthesis/目录下（自己创建）。总之，只要\TeX{}系统能找到就
+% 行。\par
+% 补充：如果你是想自己去make源代码，那在运行make命令后可能会有一些需要输入
+% y/n的地方，你全部输入y，然后回车就行，覆盖掉老文件。
+% 
+% \subsection{功能}
+%
+% \DescribeMacro{\fontcourier}
+% 这个命令用来引用courier字体。我默认设置的是MS的Courier New字体。这个字体
+% 对英文显示效果良好，建议你论文中的英文都用这个字体。使用方法如下：\\
+% |\fontcourier{Here is english part}|
+% 
+% \DescribeMacro{\fontkai}
+% 这个命令用来引用楷体。楷体对中文显示效果良好，用法如下：\\
+% |\fontkai{这里是楷体部分}|
+%
+% \DescribeMacro{\fontsong}
+% 这个命令用来引用宋体。宋体在华师大论文要求的默认中文字体，所以我设置的全
+% 文默认字体也是宋体。这里提供这个只是为了完整性：\\
+% |\fontsong{这里是宋体部分}|
+%
+% \DescribeMacro{\fonthei}
+% 这个命令用来引用黑体。黑体和粗体类似，都是用于引起读者注意，常用来标题等
+% 地方。用法如下：\\
+% |\fonthei{这里是黑体部分}|
+%
+% \DescribeMacro{\urcite}
+% 这个命令提供引用功能，比如引用参考文献等。用法：\\
+% |专业名词在这里\urcite{reftowhat}| \\
+% 这样就会在``专业名词在这里''右上角加一个引用标记。
+% reftowhat是你的bib里面写的引用标记。具体看example.tex和
+% example.pdf效果。
+%
+% \DescribeMacro{\thesistitle}
+% 设置论文标题，参数3个，第一个参数是中文名字，第二三个参数是英文名字的一二
+% 部分，具体怎么断词，你自己决定。使用方法：\\
+% |\thesistitle{中文标题}{Chinese}{title}|
+%
+% \DescribeMacro{\thesisdate}
+% 设置论文日期。用法：\\
+% |\thesisdate{1111年11月11日}|
+%
+% \DescribeMacro{\thesisdegree}
+% 设置论文申请的学位，一般是学士/硕士/博士，使用方法：\\
+% |\thesisdegree{学士}|
+%
+% \DescribeMacro{\thesisstudent}
+% 设置论文的学生信息，有5个参数，第一个参数是名字，第二个参数是学号，第三个参
+% 数是班级，第四个参数是学院，第五个参数是专业。用法如下：\\
+% |\thesisstudent{张三}{101010101}{01级01班}{计算机学院}{计算机专业}|
+%
+% \DescribeMacro{\thesisinstructor}
+% 设置导师信息，有2个参数，第一个参数是导师姓名，第二个参数是导师职称。
+% 用法如下：\\
+% |\thesisinstructor{阿三}{叫授}|
+%
+% \DescribeMacro{\thesistitlepage}
+% 创建标题页。当然你设置完前面的标题页需要显示的信息后，用这个命令来真正创建标题页。
+% 用法如下：\\
+% |\thesistitlepage| \\
+% 不需要参数，就这样就ok了。
+%
+% \DescribeMacro{\thesiscontents}
+% 创建目录页。当你需要创建目录的时候用这个命令，立即自动生成目录。用法很简单，如下：\\
+% |\thesiscontents| \\
+% 所有目录的标号以及索引和连接都自动创建完了。不需要你去``选择更新域''。
+%
+% \DescribeMacro{\thesistablecaption}
+% 创建表格的标题，这个命令有4个参数，第一个参数是引用标记，第二参数是短标题，第三个
+% 参数是中文标题，第四个参数是英文标题。
+%
+% \DescribeMacro{\thesistableindex}
+% 如果你想在论文的某个地方，比如结束的时候，列举一个论文中引用到的所有的\textbf{表}
+% 的列表，你运行这个命令会自动生成让你满意的结果。用法如下：\\
+% |\thesistableindex|
+%
+% \DescribeMacro{\thesisfigurecaption}
+% 创建插图的标题，和|\thesistablecaption|命令参数类似。
+%
+% \DescribeMacro{\thesisfigureindex}
+% 和|\thesistableindex|效果类是，只是生成的是所有引用到的\textbf{图}的列表，用法如下：\\
+% |\thesisfigureindex|
+%
+% \DescribeMacro{\thesisfigureandtableindex}
+% 和|\thesistableindex|，|\thesisfigureindex|效果类似，只是将插图和表格列表放在一页上。
+% 用法如下：\\
+% |\thesistableandfigureindex|
+%
+% \DescribeEnv{thesisabstractchinese}
+% 中文摘要环境。让你要写中文摘要的时候需要用到这个环境，用法如下：
+% |\begin{thesisabstractchinese}| \\
+% 这是是中文摘要内容 \\
+% |\end{thesisabstractchinese}| \\
+% 环境用起来稍微比命令复杂一些，但是也很简单。
+%
+% \DescribeEnv{thesisabstractenglish}
+% 中文摘要环境。让你要写中文摘要的时候需要用到这个环境，用法如下：
+% |\begin{thesisabstractenglish}| \\
+% Here is english abstract \\
+% |\end{thesisabstractenglish}|
+%
+% \DescribeEnv{thesisthebibliography}
+% 参考文献环境。用法请参考example.exe，效果请看example.pdf。这里不赘述。
+%
+% \DescribeEnv{thesisappendix}
+% 附录环境。用法请参考example.exe，效果请看example.pdf。这里不赘述。
+%
+% \StopEventually{\PrintChanges\PrintIndex}
+%
+% \section{实现}
+%
+% 为了简化，这里的实现都来自于我为这个类编写的代码，对于感兴趣的朋友，
+% 可以作为参考。不过对于仅仅想使用这个类的功能，那么了解实现是没有什么
+% 意义的。
+%
+% \subsection{基本设置}
+%
+%    \begin{macrocode}
+% 使用默认的article类作为基础来创建类。
+\LoadClassWithOptions{article}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+% 导入一些常用的宏包，方便你在写论文的过程中使用。 
+\RequirePackage{xcolor}                                     % 色彩支持宏包
+\RequirePackage{hyperref}                                   % 创建超链接和目录宏包
+\RequirePackage{amsmath}                                    % 数学符号宏包
+\RequirePackage{amsfonts}                                   % 数学字体宏包
+\RequirePackage{fontspec}                                   % 设置字体宏包
+\RequirePackage[slantfont,boldfont]{xeCJK}                  % XeLaTeX的CJK支持宏包
+\RequirePackage[toc,page,title,titletoc,header]{appendix}   % 附录支持宏包
+\RequirePackage{fancyhdr}                                   % 页眉页脚支持宏包
+\RequirePackage{graphicx}                                   % 插图支持
+\RequirePackage{setspace}                                   % 行距支持宏包
+\RequirePackage{ccaption}                                   % 中英文标题支持宏包
+\RequirePackage{longtable}                                  % 长表格环境支持宏包
+\RequirePackage{listings}                                   % 源代码显示支持宏包
+\RequirePackage[titles,subfigure]{tocloft}                  % 目录和页码点号支持宏包
+\RequirePackage{subfigure}                                  % 并排插图支持宏包
+\RequirePackage{multirow}                                   % 合并表格行列支持
+\RequirePackage{ulem}                                       % 删除线支持
+\RequirePackage{geometry}                                   % 页面边距调整支持
+\RequirePackage{calc}                                       % 计算支持
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+% 对超链接/PDF显示效果的设置。
+\hypersetup{%
+    pdfencoding=auto,			% 自动确定编码
+    pdfpagelayout={SinglePage}, % 初始单页视图
+    bookmarksnumbered={true},	% 书签编号
+    bookmarksopen={false},		% 自动展开书签
+    pdfborder={0 0 0}}			% 边框
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+% 设置目录和页码之间的点号。
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+% 设置中文段首，LaTeX原来默认的是2个M宽度。后来随着发展，变成了2个ccwd，而
+% ccwd一般会考虑CJKglue，但是问题出在parindent不会随着字体大小编码而自动扩展，
+% 所以我这里把parindent改成了2.5个M，这样在五号，也就是10.5pt的时候显示起来更
+% 美观。你可以根据实际使用的字体大小来修改parindent。
+\setlength{\parindent}{2.5em}
+%    \end{macrocode}
+%
+% \begin{macro}{\fontcourier}
+% courier是苹果设计的衬线字体，适合长期阅读而不疲劳，也是非常美观的英文字体。
+%    \begin{macrocode}
+\newfontfamily\fontcourier{Courier New} % courier，我觉得最漂亮的英文字体
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\fontkai}
+% 楷体是中文显示很均衡的字体，看起来有力道也非常柔和，适合长时间阅读。
+%    \begin{macrocode}
+\newfontfamily\fontkai{KaiTi} % 楷体，我觉得最漂亮的中文字体
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\fontsong}
+% 宋体是使用非常广泛的中文字体，为了遵循官方要求本论文模板类也使用宋体作为默认
+% 字体，但是个人认为其非常不美观，尤其是字体小于12pt的时候，完全不能体现汉字的
+% 美感，所以如果你需要，你可用前面的楷体。
+%    \begin{macrocode}
+\newfontfamily\fontsong{NSimSun} % 宋体，很难看但是很常用的中文字体
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\fonthei}
+% 黑体是用来突出醒目强调文字用的，比如章节标题等等。
+%    \begin{macrocode}
+\newfontfamily\fonthei{SimHei} % 黑体
+%    \end{macrocode}
+% \end{macro}
+%
+%    \begin{macrocode}
+% 全文字体默认设置
+\setmainfont{Times New Roman}   % 默认字体
+\setmonofont{Times New Roman}   % 默认等宽字体
+\setsansfont{Arial}             % 英文无衬线字体
+\setCJKmainfont{NSimSun}        % CJK默认字体
+\setCJKmonofont{NSimSun}        % CJK等宽字体
+%    \end{macrocode}
+%
+%   \begin{macrocode}
+% 设置页边距
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+%   \end{macrocode}
+%
+%    \begin{macrocode}
+% 设置华师大要求的页眉
+\pagestyle{fancy}
+\fancyhead[L]{{\color{gray}{华东师范大学\@deg 学位论文}}}
+\fancyhead[R]{{\color{gray}{\@titzh}}}
+\renewcommand{\headrule}{{\color{gray}{\hrule}}}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+% 设置图表标题和上下文之间的间隔，保持美观。
+%\setlength{\abovecaptionskip}{2\baselineskip}
+\setlength{\abovelegendskip}{\baselineskip}
+%\setlength{\belowcaptionskip}{2\baselineskip}
+\setlength{\belowlegendskip}{\baselineskip}
+%    \end{macrocode}
+%
+% \begin{macro}{\urcite}
+% 右上角标注引用命令，第一个参数是引用标记。一般在常见的标注引用是使用[1]
+% 这种样式，但是为了遵循华师大的标准要求，我提供了urcite，即up-right cite。
+%    \begin{macrocode}
+\newcommand{\urcite}[1]{%
+    \textsuperscript{%
+        \textsuperscript{\cite{#1}}}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\thesistitle}
+% 设置论文标题页标题的命令，第一个参数是中文标题，第二个参数是英文标题第一部分，
+% 第三个参数是英文标题第二部分。这样设计的考虑是有时候英文标题可能过长而导致显示
+% 不美观。具体英文第一行和第二行怎么显示，断行由你来决定，你只需要传入两部分参数
+% 即可。
+%    \begin{macrocode}
+\newcommand{\thesistitle}[2]{% 标题页标题
+    \def\@titzh{#1}     % 中文标题
+    \def\@titen{#2}}    % 英文标题
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\thesisdate}
+% 设置论文标题页日期的命令，第一个参数是日期。
+%    \begin{macrocode}
+\newcommand{\thesisdate}[1]{% 标题页日期
+    \def\@dat{#1}}      % 标题页日期
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\thesisdegree}
+% 设置论文标题页学位的命令，第一个参数是学位（一般是学士/硕士/博士）。
+%    \begin{macrocode}
+\newcommand{\thesisdegree}[1]{% 标题页学位
+    \def\@deg{#1}}      % 标题页学位
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\thesisstudent}
+% 设置论文标题页学生的命令，第一个参数是名字，第二个参数是学号，第三个参数是班级，
+% 第四个参数是学院，第五个参数是专业。
+%    \begin{macrocode}
+\newcommand{\thesisstudent}[5]{% 标题页学生信息
+    \def\@stuname{#1}   % 学生姓名
+    \def\@stuid{#2}     % 学生学号
+    \def\@stucls{#3}    % 学生班级
+    \def\@stuins{#4}    % 学生学院
+    \def\@stumaj{#5}}   % 学生专业
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\thesisinstructor}
+% 设置论文标题页导师的命令，第一个参数是名字，第二个参数是职称。
+%    \begin{macrocode}
+\newcommand{\thesisinstructor}[2]{% 标题页导师信息
+    \def\@insname{#1}   % 导师姓名
+    \def\@inslevel{#2}} % 导师职称
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\thesistitlepage}
+% 创建标题页的命令。
+%    \begin{macrocode}
+\newcommand{\thesistitlepage}{
+    \begin{titlepage}
+        \fbox{\begin{minipage}[s]{\widthof{华东师范大学\@stuins}}
+            华东师范大学\@stuins\@stumaj\@deg 学位论文
+            \end{minipage}}
+        \begin{center}
+            \vspace{30mm}
+            \huge
+            \textbf{\@titzh}\par
+            \textbf{\@titen}\par
+            \vspace{40mm}
+            \Large
+            \textbf{姓 \qquad 名} \underline{\hfill \makebox[80mm]{\@stuname} \hfill} \par
+            \vspace{5mm}
+            \textbf{学 \qquad 号} \underline{\hfill \makebox[80mm]{\@stuid} \hfill} \par
+            \vspace{5mm}
+            \textbf{班 \qquad 级} \underline{\hfill \makebox[80mm]{\@stucls} \hfill} \par
+            \vspace{5mm}
+            \textbf{导 \qquad 师} \underline{\hfill \makebox[25mm]{\@insname} \hfill} \quad \textbf{职 \qquad 称} \underline{\hfill \makebox[25mm]{\@inslevel} \hfill} \par
+            \vspace{5mm}
+            \textbf{日 \qquad 期} \underline{\hfill \makebox[80mm]{\@dat} \hfill} \par
+        \end{center}
+    \end{titlepage}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\thesiscontents}
+% 创建目录的命令。
+%    \begin{macrocode}
+\newcommand{\thesiscontents}{%
+    \renewcommand{\contentsname}{\centerline{\huge\textbf{目~~~~录}}}%
+    \thispagestyle{empty}%
+    \tableofcontents}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{environment}{thesisabstractchinese}
+% 创建中文摘要的环境。
+%    \begin{macrocode}
+\newenvironment{thesisabstractchinese}{%
+    \newpage%
+    \renewcommand{\abstractname}{\centerline{\huge\textbf{摘~~~~要}}}%
+    \begin{abstract}\begin{spacing}{1.5}}{\end{spacing}\end{abstract}}%
+%    \end{macrocode}
+% \end{environment}
+%
+% \begin{environment}{thesisabstractenglish}
+% 创建英文摘要的环境。
+%    \begin{macrocode}
+\newenvironment{thesisabstractenglish}{%
+    \newpage%
+    \renewcommand{\abstractname}{\centerline{\huge\textbf{Abstract}}}%
+    \begin{abstract}\begin{spacing}{1.5}}{\end{spacing}\end{abstract}\newpage}%
+%    \end{macrocode}
+% \end{environment}
+%
+% \begin{macro}{\thesistablecaption}
+%    \begin{macrocode}
+% 创建表格的中英文标题
+\renewcommand{\tablename}{表}
+\newcommand{\thesistablecaption}[4]{\bicaption[#1]{#2}{#3}{Table}{#4}\vspace{\baselineskip}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\thesistableindex}
+% 创建表格索引，新建页。
+%    \begin{macrocode}
+\newcommand{\thesistableindex}{%
+    \newpage%
+    \renewcommand{\listtablename}{\centerline{\huge\textbf{表~~格~~列~~表}}}
+    \listoftables%
+    \addcontentsline{toc}{section}{表格列表}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\thesisfigurecaption}
+%    \begin{macrocode}
+% 创建插图的中英文标题
+\renewcommand{\figurename}{图}
+\newcommand{\thesisfigurecaption}[4]{\vspace{\baselineskip}\bicaption[#1]{#2}{#3}{Figure}{#4}}
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\thesisfigureindex}
+% 创建插图索引，新建页。
+%    \begin{macrocode}
+\newcommand{\thesisfigureindex}{%
+    \newpage%
+    \renewcommand{\listfigurename}{\centerline{\huge\textbf{插~~图~~列~~表}}}
+    \listoffigures%
+    \addcontentsline{toc}{section}{插图列表}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{macro}{\thesisfigureandtableindex}
+% 创建表格和插图表列，并放在同一页。
+%    \begin{macrocode}
+\newcommand{\thesisfigureandtableindex}{%
+    \newpage%
+    \renewcommand{\listfigurename}{\centerline{\huge\textbf{插~~图~~列~~表}}}
+    \listoffigures%
+    \renewcommand{\listtablename}{\centerline{\huge\textbf{表~~格~~列~~表}}}
+    \listoftables%
+    \addcontentsline{toc}{section}{图表列表}}%
+%    \end{macrocode}
+% \end{macro}
+%
+% \begin{environment}{thesisthebibliography}
+% 创建参考文献
+%    \begin{macrocode}
+\newenvironment{thesisthebibliography}{%
+    \newpage%
+    \renewcommand{\refname}{\centerline{\huge\textbf{参~~考~~文~~献}}}%
+    \begin{thebibliography}{64}}%
+    {\end{thebibliography}%
+    %\addcontentsline{toc}{section}{参考文献 \dotfill}}% 可能会导致目录溢出，所以不用这个。
+    \addcontentsline{toc}{section}{参考文献}}%
+%    \end{macrocode}
+% \end{environment}
+%
+% \begin{environment}{thesisappendix}
+% 创建附录
+%    \begin{macrocode}
+\newenvironment{thesisappendix}{%
+    \newpage%
+    \renewcommand{\appendixname}{}%
+    %\renewcommand{\appendixtocname}{附录 \dotfill}% 可能会导致目录溢出，所以不用这个。
+    \renewcommand{\appendixtocname}{附录}%
+    \renewcommand{\appendixpagename}{\centerline{\huge\textbf{附~~~~录}}}%
+    \begin{appendices}}%
+    {\end{appendices}}%
+%    \end{macrocode}
+% \end{environment}
+%
+% \Finale
+\endinput
